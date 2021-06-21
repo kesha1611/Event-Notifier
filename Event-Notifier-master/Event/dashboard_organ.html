@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title></title>
+</head>
+<body>
+ <p>Helloo </p>
+<h1 id="fname"></h1>
+<script src="indexo.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase.js"></script>
+
+<script type="text/javascript">
+ var userId=localStorage.getItem('id');
+ firebase.database().ref('Admin/'+userId).once('value').then(function(snapshot){
+  var fname=(snapshot.val() && snapshot.val().fisrtName);
+
+  document.getElementById('fname').innerHTML=fname;
+ });
+
+</script>
+
+</body>
+</html>
